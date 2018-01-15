@@ -21,7 +21,6 @@ import io.reactivex.schedulers.Schedulers;
  */
 
 public class LocalCacheManager {
-    private static final String DB_NAME = "database-name";
     private Context context;
     private static LocalCacheManager _instance;
     private AppDatabase db;
@@ -38,7 +37,7 @@ public class LocalCacheManager {
         db = AppDatabase.getAppDatabase(context);
     }
 
-    public void getUsers(final MainViewInterface mainViewInterface) {
+    public void getNotes(final MainViewInterface mainViewInterface) {
         db.noteDao().getAll().subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread()).subscribe(new Consumer<List<Note>>() {
             @Override
             public void accept(List<Note> notes) throws Exception {
@@ -47,7 +46,7 @@ public class LocalCacheManager {
         });
     }
 
-    public void addUser(final AddNoteViewInterface mainViewInterface, final String title, final String note_text) {
+    public void addNotes(final AddNoteViewInterface addNoteViewInterface, final String title, final String note_text) {
         Completable.fromAction(new Action() {
             @Override
             public void run() throws Exception {
@@ -62,12 +61,12 @@ public class LocalCacheManager {
 
             @Override
             public void onComplete() {
-                mainViewInterface.onNoteAdded();
+                addNoteViewInterface.onNoteAdded();
             }
 
             @Override
             public void onError(Throwable e) {
-                mainViewInterface.onDataNotAvailable();
+                addNoteViewInterface.onDataNotAvailable();
             }
         });
     }

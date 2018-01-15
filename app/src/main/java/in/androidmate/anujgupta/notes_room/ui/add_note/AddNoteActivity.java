@@ -40,7 +40,7 @@ public class AddNoteActivity extends AppCompatActivity implements AddNoteViewInt
         }else{
             //Call Method to add note
 
-            LocalCacheManager.getInstance(this).addUser(this, title,note_text);
+            LocalCacheManager.getInstance(this).addNotes(this, title,note_text);
         }
 
     }

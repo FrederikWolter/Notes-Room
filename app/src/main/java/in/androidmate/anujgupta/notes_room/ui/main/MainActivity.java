@@ -45,7 +45,7 @@ public class MainActivity extends AppCompatActivity implements MainViewInterface
     private void loadNotes(){
 
         //Call Method to get Notes
-        LocalCacheManager.getInstance(this).getUsers(this);
+        LocalCacheManager.getInstance(this).getNotes(this);
 
 
     }
