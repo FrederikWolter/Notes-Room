@@ -20,8 +20,8 @@ class NotesAdapter(var context: Context?, noteList: MutableList<Note?>) : Recycl
     }
 
     override fun onBindViewHolder(holder: NotesViewHolder, position: Int) {
-        holder.tvTitle?.setText(noteList[position]?.getTitle())
-        holder.tvNote?.setText(noteList[position]?.getNote())
+        holder.tvTitle?.text = noteList[position]?.getTitle()
+        holder.tvNote?.text = noteList[position]?.getNote()
     }
 
     override fun getItemCount(): Int {
@@ -29,13 +29,8 @@ class NotesAdapter(var context: Context?, noteList: MutableList<Note?>) : Recycl
     }
 
     inner class NotesViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        var tvTitle: TextView?
-        var tvNote: TextView?
-
-        init {
-            tvTitle = itemView.findViewById(R.id.tvNoteTitle)
-            tvNote = itemView.findViewById(R.id.tvNoteText)
-        }
+        var tvTitle: TextView? = itemView.findViewById(R.id.tvNoteTitle)
+        var tvNote: TextView? = itemView.findViewById(R.id.tvNoteText)
     }
 
     init {

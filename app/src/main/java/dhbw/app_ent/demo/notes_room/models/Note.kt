@@ -13,7 +13,8 @@ class Note {
     @ColumnInfo(name = "note")
     private var note: String? = null
 
-    constructor() {}
+    constructor()
+
     constructor(id: Int, title: String?, note: String?) {
         this.id = id
         this.title = title

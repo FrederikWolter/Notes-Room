@@ -29,13 +29,13 @@ class AddNoteActivity : AppCompatActivity(), AddNoteViewInterface {
     }
 
     private fun saveNote() {
-        val title = etTitle?.getText().toString()
-        val note_text = etNote?.getText().toString()
-        if (title == "" || note_text == "") {
+        val title = etTitle?.text.toString()
+        val noteText = etNote?.text.toString()
+        if (title == "" || noteText == "") {
             showToast("Please fill all the fields before saving")
         } else {
             //Call Method to add note
-            LocalCacheManager.Companion.getInstance(this)?.addNotes(this, title, note_text)
+            LocalCacheManager.getInstance(this)?.addNotes(this, title, noteText)
         }
     }
 
@@ -49,7 +49,7 @@ class AddNoteActivity : AppCompatActivity(), AddNoteViewInterface {
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        val id = item.getItemId()
+        val id = item.itemId
         if (id == R.id.action_save) {
             saveNote()
         }

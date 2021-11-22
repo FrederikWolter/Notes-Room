@@ -17,12 +17,9 @@ class LocalCacheManager(private val context: Context?) {
     private val db: AppDatabase?
 
     fun getNotes(mainViewInterface: MainViewInterface?) {
-        db?.noteDao()?.getAll()?.subscribeOn(Schedulers.io())?.observeOn(AndroidSchedulers.mainThread())?.subscribe(object : Consumer<MutableList<Note?>?> {
-            @Throws(Exception::class)
-            override fun accept(t: MutableList<Note?>?) {
-                mainViewInterface?.onNotesLoaded(t)
-            }
-        })
+        db?.noteDao()?.getAll()?.subscribeOn(Schedulers.io())?.observeOn(AndroidSchedulers.mainThread())?.subscribe { t ->
+            mainViewInterface?.onNotesLoaded(t)
+        }
     }
 
     fun addNotes(addNoteViewInterface: AddNoteViewInterface?, title: String?, note_text: String?) {
@@ -43,16 +40,16 @@ class LocalCacheManager(private val context: Context?) {
     }
 
     companion object {
-        private var _instance: LocalCacheManager? = null
+        private var instance: LocalCacheManager? = null
         fun getInstance(context: Context?): LocalCacheManager? {
-            if (_instance == null) {
-                _instance = LocalCacheManager(context)
+            if (instance == null) {
+                instance = LocalCacheManager(context)
             }
-            return _instance
+            return instance
         }
     }
 
     init {
-        db = AppDatabase.Companion.getAppDatabase(context)
+        db = AppDatabase.getAppDatabase(context)
     }
 }

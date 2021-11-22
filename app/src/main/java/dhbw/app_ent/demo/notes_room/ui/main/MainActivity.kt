@@ -19,8 +19,8 @@ class MainActivity : AppCompatActivity(), MainViewInterface {
     @JvmField
     @BindView(R.id.rvNotes)
     var rvNotes: RecyclerView? = null
-    var adapter: RecyclerView.Adapter<*>? = null
-    var notesList: MutableList<Note?>? = null
+    private var adapter: RecyclerView.Adapter<*>? = null
+    private var notesList: MutableList<Note?>? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -31,13 +31,13 @@ class MainActivity : AppCompatActivity(), MainViewInterface {
     }
 
     private fun initViews() {
-        rvNotes?.setLayoutManager(LinearLayoutManager(this))
+        rvNotes?.layoutManager = LinearLayoutManager(this)
     }
 
     private fun loadNotes() {
 
         //Call Method to get Notes
-        LocalCacheManager.Companion.getInstance(this)?.getNotes(this)
+        LocalCacheManager.getInstance(this)?.getNotes(this)
     }
 
     @OnClick(R.id.fabAddNote)
@@ -52,7 +52,7 @@ class MainActivity : AppCompatActivity(), MainViewInterface {
             onDataNotAvailable()
         } else {
             adapter = notes?.let { NotesAdapter(this, it) }
-            rvNotes?.setAdapter(adapter)
+            rvNotes?.adapter = adapter
         }
     }
 

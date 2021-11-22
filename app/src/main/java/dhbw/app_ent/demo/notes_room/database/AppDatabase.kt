@@ -14,7 +14,7 @@ abstract class AppDatabase : RoomDatabase() {
         private var INSTANCE: AppDatabase? = null
         fun getAppDatabase(context: Context?): AppDatabase? {
             if (INSTANCE == null) {
-                INSTANCE = Room.databaseBuilder(context!!.getApplicationContext(), AppDatabase::class.java, "database-name")
+                INSTANCE = Room.databaseBuilder(context!!.applicationContext, AppDatabase::class.java, "database-name")
                         .build()
             }
             return INSTANCE
