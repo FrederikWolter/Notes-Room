@@ -19,6 +19,8 @@
         android:layout_marginBottom="24dp"
         android:layout_marginRight="24dp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
+        app:layout_constraintEnd_toEndOf="parent"
+        android:contentDescription="PLUS"
+        android:layout_marginEnd="24dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

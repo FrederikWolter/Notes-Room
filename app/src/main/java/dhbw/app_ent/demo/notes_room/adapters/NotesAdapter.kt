@@ -11,8 +11,8 @@ import android.view.View
 import androidx.recyclerview.widget.RecyclerView
 import java.util.ArrayList
 
-class NotesAdapter(var context: Context?, noteList: MutableList<Note?>) : RecyclerView.Adapter<NotesViewHolder?>() {
-    var noteList: MutableList<Note?> = ArrayList()
+class NotesAdapter(private var context: Context?, noteList: MutableList<Note?>) : RecyclerView.Adapter<NotesViewHolder?>() {
+    private var noteList: MutableList<Note?> = ArrayList()
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): NotesViewHolder {
         val v: View = LayoutInflater.from(context).inflate(R.layout.row_note, parent, false)

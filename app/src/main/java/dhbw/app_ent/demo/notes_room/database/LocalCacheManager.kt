@@ -1,20 +1,17 @@
 package dhbw.app_ent.demo.notes_room.database
 
-import kotlin.Throws
-import dhbw.app_ent.demo.notes_room.ui.main.MainViewInterface
-import dhbw.app_ent.demo.notes_room.ui.add_note.AddNoteViewInterface
-import dhbw.app_ent.demo.notes_room.models.Note
 import android.content.Context
-import io.reactivex.schedulers.Schedulers
-import io.reactivex.android.schedulers.AndroidSchedulers
+import dhbw.app_ent.demo.notes_room.models.Note
+import dhbw.app_ent.demo.notes_room.ui.add_note.AddNoteViewInterface
+import dhbw.app_ent.demo.notes_room.ui.main.MainViewInterface
 import io.reactivex.Completable
 import io.reactivex.CompletableObserver
+import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.Disposable
-import io.reactivex.functions.Consumer
-import java.lang.Exception
+import io.reactivex.schedulers.Schedulers
 
 class LocalCacheManager(private val context: Context?) {
-    private val db: AppDatabase?
+    private val db: AppDatabase? = AppDatabase.getAppDatabase(context)
 
     fun getNotes(mainViewInterface: MainViewInterface?) {
         db?.noteDao()?.getAll()?.subscribeOn(Schedulers.io())?.observeOn(AndroidSchedulers.mainThread())?.subscribe { t ->
@@ -49,7 +46,4 @@ class LocalCacheManager(private val context: Context?) {
         }
     }
 
-    init {
-        db = AppDatabase.getAppDatabase(context)
-    }
 }
