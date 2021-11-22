@@ -19,9 +19,9 @@ class LocalCacheManager(private val context: Context?) {
         }
     }
 
-    fun addNotes(addNoteViewInterface: AddNoteViewInterface?, title: String?, note_text: String?) {
+    fun addNotes(addNoteViewInterface: AddNoteViewInterface?, title: String, note_text: String) {
         Completable.fromAction {
-            val note = Note(title, note_text)
+            val note = Note(id=0, title = title, note = note_text)
             db?.noteDao()?.insertAll(note)
         }.observeOn(AndroidSchedulers.mainThread())
                 .subscribeOn(Schedulers.io()).subscribe(object : CompletableObserver {

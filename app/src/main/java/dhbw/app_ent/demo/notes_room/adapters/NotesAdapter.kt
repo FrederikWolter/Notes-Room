@@ -20,8 +20,8 @@ class NotesAdapter(private var context: Context?, noteList: MutableList<Note?>) 
     }
 
     override fun onBindViewHolder(holder: NotesViewHolder, position: Int) {
-        holder.tvTitle?.text = noteList[position]?.getTitle()
-        holder.tvNote?.text = noteList[position]?.getNote()
+        holder.tvTitle?.text = noteList[position]?.title
+        holder.tvNote?.text = noteList[position]?.note
     }
 
     override fun getItemCount(): Int {
