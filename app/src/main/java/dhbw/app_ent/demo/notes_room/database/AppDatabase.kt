@@ -6,15 +6,19 @@ import dhbw.app_ent.demo.notes_room.models.Note
 import androidx.room.Room
 import android.content.Context
 
-@Database(entities = [Note::class], version = 1)
+@Database(entities = [Note::class], version = 1, exportSchema = false)
 abstract class AppDatabase : RoomDatabase() {
     abstract fun noteDao(): NoteDao?
 
     companion object {
+        // region implementation of singleton
         private var INSTANCE: AppDatabase? = null
+
         fun getAppDatabase(context: Context?): AppDatabase? {
             if (INSTANCE == null) {
-                INSTANCE = Room.databaseBuilder(context!!.applicationContext, AppDatabase::class.java, "database-name")
+                INSTANCE = Room.databaseBuilder(context!!.applicationContext,
+                                                AppDatabase::class.java,
+                                          "database-name")
                         .build()
             }
             return INSTANCE
@@ -23,5 +27,6 @@ abstract class AppDatabase : RoomDatabase() {
         fun destroyInstance() {
             INSTANCE = null
         }
+        // endregion
     }
 }

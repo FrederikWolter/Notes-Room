@@ -1,6 +1,8 @@
 package dhbw.app_ent.demo.notes_room.models
 
-import androidx.room.*
+import androidx.room.ColumnInfo
+import androidx.room.Entity
+import androidx.room.PrimaryKey
 
 @Entity(tableName = "notes")
 class Note {
@@ -26,27 +28,15 @@ class Note {
         this.note = note
     }
 
-    fun getId(): Int {
-        return id
-    }
+    fun getId(): Int { return id }
 
-    fun getTitle(): String? {
-        return title
-    }
+    fun getTitle(): String? { return title }
 
-    fun getNote(): String? {
-        return note
-    }
+    fun getNote(): String? { return note }
 
-    fun setId(id: Int) {
-        this.id = id
-    }
+    fun setId(id: Int) { this.id = id }
 
-    fun setTitle(title: String?) {
-        this.title = title
-    }
+    fun setTitle(title: String?) { this.title = title }
 
-    fun setNote(note: String?) {
-        this.note = note
-    }
+    fun setNote(note: String?) { this.note = note }
 }

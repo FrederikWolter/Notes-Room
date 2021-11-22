@@ -8,7 +8,17 @@ import androidx.room.*
 @Dao
 interface NoteDao {
     @Query("SELECT * FROM notes")
-    open fun getAll(): Maybe<MutableList<Note?>?>?
+    fun getAll(): Maybe<MutableList<Note?>?>?
+
     @Insert
-    open fun insertAll(vararg notes: Note?)
+    fun insertAll(vararg notes: Note?)
+
+    @Insert
+    fun insertNote(note: Note)
+
+    @Update
+    fun updateNote(note: Note)
+
+    @Delete
+    fun deleteNote(note: Note)
 }
