@@ -1,22 +1,15 @@
-package dhbw.androidmate.anujgupta.notes_room.ui.add_note
+package dhbw.app_ent.demo.notes_room.ui.add_note
 
 import android.support.v7.app.AppCompatActivity
-import dhbw.androidmate.anujgupta.notes_room.ui.main.MainViewInterface
 import butterknife.BindView
-import dhbw.androidmate.anujgupta.notes_room.R
+import dhbw.app_ent.demo.notes_room.R
 import android.os.Bundle
 import butterknife.ButterKnife
-import dhbw.androidmate.anujgupta.notes_room.database.LocalCacheManager
+import dhbw.app_ent.demo.notes_room.database.LocalCacheManager
 import android.content.Intent
-import dhbw.androidmate.anujgupta.notes_room.ui.add_note.AddNoteActivity
-import dhbw.androidmate.anujgupta.notes_room.adapters.NotesAdapter
 import android.widget.Toast
-import dhbw.androidmate.anujgupta.notes_room.ui.add_note.AddNoteViewInterface
 import android.widget.EditText
-import dhbw.androidmate.anujgupta.notes_room.ui.main.MainActivity
-import dhbw.androidmate.anujgupta.notes_room.adapters.NotesAdapter.NotesViewHolder
-import dhbw.androidmate.anujgupta.notes_room.database.NoteDao
-import dhbw.androidmate.anujgupta.notes_room.database.AppDatabase
+import dhbw.app_ent.demo.notes_room.ui.main.MainActivity
 import android.view.Menu
 import android.view.MenuItem
 
@@ -54,8 +47,8 @@ class AddNoteActivity : AppCompatActivity(), AddNoteViewInterface {
         return true
     }
 
-    override fun onOptionsItemSelected(item: MenuItem?): Boolean {
-        val id = item?.getItemId()
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        val id = item.getItemId()
         if (id == R.id.action_save) {
             saveNote()
         }

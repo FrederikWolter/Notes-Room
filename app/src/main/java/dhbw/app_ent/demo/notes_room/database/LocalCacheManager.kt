@@ -1,23 +1,15 @@
-package dhbw.androidmate.anujgupta.notes_room.database
+package dhbw.app_ent.demo.notes_room.database
 
 import kotlin.Throws
-import dhbw.androidmate.anujgupta.notes_room.ui.main.MainViewInterface
-import dhbw.androidmate.anujgupta.notes_room.R
-import dhbw.androidmate.anujgupta.notes_room.ui.add_note.AddNoteActivity
-import dhbw.androidmate.anujgupta.notes_room.adapters.NotesAdapter
-import dhbw.androidmate.anujgupta.notes_room.ui.add_note.AddNoteViewInterface
-import dhbw.androidmate.anujgupta.notes_room.ui.main.MainActivity
-import dhbw.androidmate.anujgupta.notes_room.adapters.NotesAdapter.NotesViewHolder
-import dhbw.androidmate.anujgupta.notes_room.database.NoteDao
-import dhbw.androidmate.anujgupta.notes_room.database.AppDatabase
-import dhbw.androidmate.anujgupta.notes_room.models.Note
+import dhbw.app_ent.demo.notes_room.ui.main.MainViewInterface
+import dhbw.app_ent.demo.notes_room.ui.add_note.AddNoteViewInterface
+import dhbw.app_ent.demo.notes_room.models.Note
 import android.content.Context
 import io.reactivex.schedulers.Schedulers
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.Completable
 import io.reactivex.CompletableObserver
 import io.reactivex.disposables.Disposable
-import dhbw.androidmate.anujgupta.notes_room.database.LocalCacheManager
 import io.reactivex.functions.Consumer
 import java.lang.Exception
 

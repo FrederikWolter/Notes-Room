@@ -1,25 +1,19 @@
-package dhbw.androidmate.anujgupta.notes_room.ui.main
+package dhbw.app_ent.demo.notes_room.ui.main
 
 import android.support.v7.app.AppCompatActivity
-import dhbw.androidmate.anujgupta.notes_room.ui.main.MainViewInterface
 import butterknife.BindView
-import dhbw.androidmate.anujgupta.notes_room.R
+import dhbw.app_ent.demo.notes_room.R
 import android.support.v7.widget.RecyclerView
 import android.os.Bundle
 import butterknife.ButterKnife
 import android.support.v7.widget.LinearLayoutManager
-import dhbw.androidmate.anujgupta.notes_room.database.LocalCacheManager
+import dhbw.app_ent.demo.notes_room.database.LocalCacheManager
 import butterknife.OnClick
 import android.content.Intent
-import dhbw.androidmate.anujgupta.notes_room.ui.add_note.AddNoteActivity
-import dhbw.androidmate.anujgupta.notes_room.adapters.NotesAdapter
+import dhbw.app_ent.demo.notes_room.ui.add_note.AddNoteActivity
+import dhbw.app_ent.demo.notes_room.adapters.NotesAdapter
 import android.widget.Toast
-import dhbw.androidmate.anujgupta.notes_room.ui.add_note.AddNoteViewInterface
-import dhbw.androidmate.anujgupta.notes_room.ui.main.MainActivity
-import dhbw.androidmate.anujgupta.notes_room.adapters.NotesAdapter.NotesViewHolder
-import dhbw.androidmate.anujgupta.notes_room.database.NoteDao
-import dhbw.androidmate.anujgupta.notes_room.database.AppDatabase
-import dhbw.androidmate.anujgupta.notes_room.models.Note
+import dhbw.app_ent.demo.notes_room.models.Note
 
 class MainActivity : AppCompatActivity(), MainViewInterface {
     @JvmField
