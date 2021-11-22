@@ -1,6 +1,6 @@
 package dhbw.app_ent.demo.notes_room.ui.add_note
 
-import android.support.v7.app.AppCompatActivity
+
 import butterknife.BindView
 import dhbw.app_ent.demo.notes_room.R
 import android.os.Bundle
@@ -12,6 +12,7 @@ import android.widget.EditText
 import dhbw.app_ent.demo.notes_room.ui.main.MainActivity
 import android.view.Menu
 import android.view.MenuItem
+import androidx.appcompat.app.AppCompatActivity
 
 class AddNoteActivity : AppCompatActivity(), AddNoteViewInterface {
     @JvmField

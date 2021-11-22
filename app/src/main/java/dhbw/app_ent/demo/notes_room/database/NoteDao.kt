@@ -2,7 +2,7 @@ package dhbw.app_ent.demo.notes_room.database
 
 import io.reactivex.Maybe
 import dhbw.app_ent.demo.notes_room.models.Note
-import android.arch.persistence.room.*
+import androidx.room.*
 
 
 @Dao

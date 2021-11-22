@@ -19,7 +19,7 @@ class LocalCacheManager(private val context: Context?) {
     fun getNotes(mainViewInterface: MainViewInterface?) {
         db?.noteDao()?.getAll()?.subscribeOn(Schedulers.io())?.observeOn(AndroidSchedulers.mainThread())?.subscribe(object : Consumer<MutableList<Note?>?> {
             @Throws(Exception::class)
-            override fun accept(t: MutableList<Note?>) {
+            override fun accept(t: MutableList<Note?>?) {
                 mainViewInterface?.onNotesLoaded(t)
             }
         })
@@ -31,12 +31,12 @@ class LocalCacheManager(private val context: Context?) {
             db?.noteDao()?.insertAll(note)
         }.observeOn(AndroidSchedulers.mainThread())
                 .subscribeOn(Schedulers.io()).subscribe(object : CompletableObserver {
-                    override fun onSubscribe(d: Disposable?) {}
+                    override fun onSubscribe(d: Disposable) {}
                     override fun onComplete() {
                         addNoteViewInterface?.onNoteAdded()
                     }
 
-                    override fun onError(e: Throwable?) {
+                    override fun onError(e: Throwable) {
                         addNoteViewInterface?.onDataNotAvailable()
                     }
                 })

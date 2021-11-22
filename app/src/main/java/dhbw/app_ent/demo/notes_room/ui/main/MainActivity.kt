@@ -1,18 +1,18 @@
 package dhbw.app_ent.demo.notes_room.ui.main
 
-import android.support.v7.app.AppCompatActivity
 import butterknife.BindView
 import dhbw.app_ent.demo.notes_room.R
-import android.support.v7.widget.RecyclerView
 import android.os.Bundle
 import butterknife.ButterKnife
-import android.support.v7.widget.LinearLayoutManager
 import dhbw.app_ent.demo.notes_room.database.LocalCacheManager
 import butterknife.OnClick
 import android.content.Intent
 import dhbw.app_ent.demo.notes_room.ui.add_note.AddNoteActivity
 import dhbw.app_ent.demo.notes_room.adapters.NotesAdapter
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import dhbw.app_ent.demo.notes_room.models.Note
 
 class MainActivity : AppCompatActivity(), MainViewInterface {
@@ -21,6 +21,7 @@ class MainActivity : AppCompatActivity(), MainViewInterface {
     var rvNotes: RecyclerView? = null
     var adapter: RecyclerView.Adapter<*>? = null
     var notesList: MutableList<Note?>? = null
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)

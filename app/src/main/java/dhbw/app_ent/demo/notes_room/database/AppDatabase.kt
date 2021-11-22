@@ -1,9 +1,9 @@
 package dhbw.app_ent.demo.notes_room.database
 
-import android.arch.persistence.room.Database
-import android.arch.persistence.room.RoomDatabase
+import androidx.room.Database
+import androidx.room.RoomDatabase
 import dhbw.app_ent.demo.notes_room.models.Note
-import android.arch.persistence.room.Room
+import androidx.room.Room
 import android.content.Context
 
 @Database(entities = [Note::class], version = 1)

@@ -1,6 +1,6 @@
 package dhbw.app_ent.demo.notes_room.models
 
-import android.arch.persistence.room.*
+import androidx.room.*
 
 @Entity(tableName = "notes")
 class Note {
