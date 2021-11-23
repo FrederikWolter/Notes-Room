@@ -1,24 +1,23 @@
 package dhbw.app_ent.demo.notes_room.database
 
-import io.reactivex.Maybe
+import androidx.lifecycle.LiveData
 import dhbw.app_ent.demo.notes_room.models.Note
 import androidx.room.*
-
 
 @Dao
 interface NoteDao {
     @Query("SELECT * FROM notes")
-    fun getAll(): Maybe<MutableList<Note?>?>?
+    fun getAll(): LiveData<List<Note>>
 
     @Insert
-    fun insertAll(vararg notes: Note?)
+    suspend fun insertAll(vararg notes: Note?)
 
     @Insert
-    fun insertNote(note: Note)
+    suspend fun insertNote(note: Note)
 
     @Update
-    fun updateNote(note: Note)
+    suspend fun updateNote(note: Note)
 
     @Delete
-    fun deleteNote(note: Note)
+    suspend fun deleteNote(note: Note)
 }

@@ -1,5 +1,5 @@
 package dhbw.app_ent.demo.notes_room.database
-
+/*
 import android.content.Context
 import dhbw.app_ent.demo.notes_room.models.Note
 import dhbw.app_ent.demo.notes_room.ui.add_note.AddNoteViewInterface
@@ -45,5 +45,4 @@ class LocalCacheManager(private val context: Context?) {
             return instance
         }
     }
-
-}
+}*/
